@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-eqiv="X-UA-Compatible" content="ie=edge">
+    <title>Perpos</title>
+    <!-- <link rel="shortcut icon" href="favicon.png"> -->
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" type="text/css" href="reset2.0.min.css">
+     <style type="text/css">
+         body {
+             background: rgb(245, 245, 245);
+             font-size: 1em;
+             letter-spacing: 0.1em;
+             line-height: 1.6em;
+             font-family: 'Microsoft Yahei';
+             font-weight: lighter;
+             color: rgba(0, 0, 0, 0.6);
+             overflow-x: hidden;
+         }
+
+         #waterfall {
+             margin: 10px;
+             overflow: hidden;
+         }
+
+         #waterfall.min {
+             margin: 0;
+         }
+
+         #waterfall li {
+             /*position: absolute;*/
+             left: 0;
+             top: 0;
+             opacity: 0;
+             z-index: 0;
+             transform: translateY(100px);
+         }
+
+         #waterfall li:hover {
+             z-index: 1;
+         }
+
+         #waterfall li.show {
+             opacity: 1;
+             transform: translateY(0);
+             transition: all 0.3s, top 1s;
+         }
+
+         #waterfall li>div {
+             color: rgba(0, 0, 0, 0.6);
+             font-size: 32px;
+             border-radius: 3px;
+             margin: 10px;
+             padding: 15px;
+             background: rgb(255, 255, 255);
+             /* border: 1px solid rgba(038, 191, 64, 0); */
+             transition: all 0.5s;
+         }
+
+         #waterfall li>div:hover {
+             transform: translateY(-10px);
+             border: 1px solid #b3b3b3;
+             /* box-shadow: 0 30px 80px rgba(038, 191, 64, 0.3); */
+             transition: all 0.3s;
+         }
+
+         #waterfall li.min>div {
+             margin: 0;
+             transform: none;
+             border: none;
+             border-radius: 0;
+             box-shadow: none;
+             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+         }
+
+         #waterfall li.min>div:hover {
+             transform: none;
+             border: none;
+             border-radius: 0;
+             box-shadow: none;
+             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+         }
+     </style>
+
+  </head>
+
+  <body>
+    <header class="main-header">
+      <div>
+        <a href="home.html" class="main-header_brand">
+          Perpro.
+        </a>
+      </div>
+      <nav class="main-nav">
+        <ul class="main-nav__items">
+          <li class="main-nav__item">
+            <a href="D:/Web%20Development/02.%20Perpro/About/about.html"> About </a>
+          </li>
+          <li class="main-nav__item">
+            <a href=".../project.html"> Project </a>
+          </li>
+          <li class="main-nav__item">
+            <a href=".../lab.html"> Perpro Lab. </a>
+          </li>
+          <li class="main-nav__item">
+            <a href="D:/Web%20Development/02.%20Perpro/Login/login.html"> Login </a>
+          </li>
+          <li class="main-nav__item main-nav__item_icon">
+            <a href=".../search.html"><img src="icon_search.png"></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="home__main_project">
+        <div class="image"></div>
+        <!-- <img class="image" width="80%" height="500" src="C:/Users/54sma/Desktop/Web/web.jpg" alt="main_purpos"  /> -->
+      </div>
+      <div>
+        <h2 class="home__main_project_name"> Web development code(Html) by Codeshin </h2>
+      </div>
+
+      <div class="recent_perpos">
+        <h2 id="recent_perpos_subject"> Recent perpro </h2>
+        <div id="home__recent_perpos">
+            <ul id="waterfall"></ul>
+        </div>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript" src="newWaterfall.js"></script>
+        <script type="text/javascript">
+            // 문서로드후 실행
+            $(document).ready(function ()
+            {
+                $('#waterfall').NewWaterfall({
+                    width: 400,
+                    delay: 100,
+                });
+            });
+
+            // 자동로드
+            function random(min, max)
+            {
+                return min + Math.floor(Math.random() * (max - min + 1))
+            }
+            var loading = false;
+            var dist = 500;
+            var num = 1;
+
+            setInterval(function ()
+            {
+                if ($(window).scrollTop() >= $(document).height() - $(window).height() - dist && !loading)
+                {
+                    // 로딩이 시작됨
+                    loading = true;
+
+                    // 콘텐츠로드중
+                    $("#waterfall").append("<li><div style='height:" + random(50, 300) + "px'>" + num + "</div></li>");
+                    num++;
+
+                    // 로딩끝남
+                    loading = false;
+                }
+            }, 60);
+        </script>
+      </div>
+    </main>
+
+    <footer class="main-footer">
+      <nav>
+        <ul class="main-footer__links">
+          <li class="main-footer__link">
+            <a href="#">Support</a>
+          </li>
+          <li class="main-footer__link">
+            <a href="#">Terms of Use</a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+
+</html>
