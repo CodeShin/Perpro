@@ -1,0 +1,37 @@
+.home__main_project {
+  position: relative;
+  height: 500px;
+  background: center center;
+  margin: 0 10%;
+  top: 124px;
+  bottom: 0px;
+  background-image: url("C:/Users/54sma/Desktop/Web/web.jpg");
+}
+
+.home__main_project_name{
+   margin: 0 10%;
+   font-size: 14px;
+   color: gray;
+   position: relative;
+   top: 130px;
+   z-index: -2;
+}
+
+
+.recent_perpos {
+  margin: 140px 10%;
+  padding-top: 40px;
+  background: rgb(245, 245, 245);
+
+}
+
+#recent_perpos_subject {
+   margin-top:  5px;
+   margin-bottom: 30px;
+   font-size: 25px;
+ }
+
+ #home__recent_perpos #waterfall {
+   margin: 0;
+
+ }

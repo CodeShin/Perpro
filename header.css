@@ -1,0 +1,65 @@
+*{
+  box-sizing: border-box;
+  }
+/* element Selector: 전체 Element 조작 시 */
+
+body{
+  margin: 0;
+}
+
+.main-header {
+  padding-bottom: 40px;
+  padding-top: 30px;
+  position: fixed;
+  width: 100%;
+  background: rgb(245, 245, 245);
+  z-index: 20;
+  top: 0px;
+}
+
+.main-header_brand {
+  color: black;
+  text-decoration: none;
+  font-size: 50px;
+  padding-left: 70px;
+}
+
+.main-header>div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.main-nav {
+  display: inline-block;
+  text-align: right;
+  width: calc(100% - 270px);
+  vertical-align: middle;
+}
+
+.main-nav__items{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-nav__item {
+  display: inline-block;
+  margin: 0;
+}
+
+.main-nav__item a {
+  color: black;
+  text-decoration: none;
+  padding: 7px;
+  font-size: 11px;
+}
+
+.main-nav__item_icon {
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav__item_icon a{
+  padding: 0;
+  display: inline-block;
+}
